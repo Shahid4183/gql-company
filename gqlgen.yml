@@ -1,0 +1,25 @@
+# .gqlgen.yml example
+#
+# Refer to https://gqlgen.com/config/
+# for detailed .gqlgen.yml documentation.
+
+schema:
+- schema.graphql
+exec:
+  filename: generated.go
+resolver:
+  filename: resolver.go
+  type: Resolver
+model:
+  filename: models_gen.go
+models:
+  Employee:
+    model: github.com/Shahid4183/gql-company/models.Employee
+  Department:
+    model: github.com/Shahid4183/gql-company/models.Department  
+  NewEmployee:
+    model: github.com/Shahid4183/gql-company/models.NewEmployee
+  UpdateEmployee:
+    model: github.com/Shahid4183/gql-company/models.UpdateEmployee
+  NewDepartment:
+    model: github.com/Shahid4183/gql-company/models.NewDepartment  

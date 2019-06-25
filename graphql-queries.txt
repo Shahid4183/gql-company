@@ -1,0 +1,82 @@
+mutation createEmployee{
+  createEmployee(input:{
+    name: "Shahid",
+    mgr: 1,
+    salary: 62500.00,
+    job: "Software Engineer",
+    deptId: 1
+  }){
+    id
+    name
+  }
+}
+
+mutation createDepartment{
+  createDepartment(input:{
+    name: "xyz",
+    location: "Pune"
+  }){
+    id
+    name
+    location
+  }
+}
+
+mutation updateEmployee{
+  updateEmployee(input:{
+    id:8,
+    name: "Abid",
+    mgr: 1,
+    salary: 62500.00,
+    job: "Software Engineer",
+    deptId: 2
+  }){
+    id
+    name
+  }
+}
+
+mutation deleteEmployee{
+  deleteEmployee(id:8)  
+}
+
+query findEmployees {
+  	employees {
+      id
+      name
+      Dept{
+        id
+        name
+        location
+      }
+    }
+}
+
+query findDepartments {
+  	departments{
+      id
+      name
+      location
+    }
+}
+
+query findEmployeeByID {
+  	employeeByID(Id:8){
+    	id
+    	name
+    	job
+    	Dept{
+        id
+        name
+        location
+      }
+  }
+}
+
+query findEmployeeByDeptID {
+  	employeeByDeptID(deptId:1){
+    	id
+    	name
+    	job
+  }
+}

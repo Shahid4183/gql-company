@@ -1,0 +1,50 @@
+type Employee{
+    id: Int!
+    name: String!
+    job: String!
+    mgr: Int!
+    salary: Float!
+    Dept: Department!
+}
+
+type Department{
+    id: Int!
+    name: String!
+    location: String!
+}
+
+input NewEmployee {
+    name: String!
+    job: String!
+    mgr: Int!
+    salary: Float!
+    deptId: Int!
+}
+
+input UpdateEmployee {
+    id: Int!
+    name: String!
+    job: String!
+    mgr: Int!
+    salary: Float!
+    deptId: Int!
+}
+
+input NewDepartment{
+    name: String!
+    location: String!
+}
+
+type Query{
+    employees:[Employee!]!
+    employeeByID(Id:Int!):Employee!
+    departments:[Department!]!
+    employeeByDeptID(deptId:Int!):[Employee!]!
+}
+
+type Mutation{
+    createEmployee(input: NewEmployee!):Employee!
+    createDepartment(input: NewDepartment!):Department!
+    updateEmployee(input: UpdateEmployee!):Employee!
+    deleteEmployee(id:Int!):String!
+}
